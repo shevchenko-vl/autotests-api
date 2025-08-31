@@ -6,6 +6,9 @@ from httpx._types import RequestData, RequestFiles
 
 class APIClient:
     def __init__(self, client: Client):
+        """
+        note: ожидается установленный `base_url` у получаемого `client`
+        """
         self.client = client
 
     def get(self, url: URL | str, params: QueryParams | None = None) -> Response:

@@ -25,20 +25,20 @@ class AuthenticationClient(APIClient):
     Клиент для /api/v1/authentication
     """
 
-    def login_api(self, payload: LoginRequestDict) -> Response:
+    def login_api(self, request: LoginRequestDict) -> Response:
         """
         Аутентифицирует пользователя.
 
-        :param payload: Словарь с email и password.
+        :param request: Словарь с email и password.
         :return: Объект Response с данными ответа.
         """
-        return self.post("/api/v1/authentication/login", json=payload)
+        return self.post('/api/v1/authentication/login', json=request)
 
-    def refresh_api(self, payload: RefreshRequestDict) -> Response:
+    def refresh_api(self, request: RefreshRequestDict) -> Response:
         """
         Обновляет токен доступа.
 
-        :param payload: Словарь с refreshToken.
+        :param request: Словарь с refreshToken.
         :return: Объект Response с данными ответа.
         """
-        return self.post("/api/v1/authentication/refresh", json=payload)
+        return self.post('/api/v1/authentication/refresh', json=request)
